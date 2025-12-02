@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fetch Weather Data</title>
+    <script src="index.js" type="module" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <input id="location" autofocus required autocomplete="off" />
+    <button id="button">Get Weather Data</button>
+    <ul>
+      <input id="fahrenheit" type="radio" name="temp" checked />
+      <label for="fahrenheit">Fahrenheit</label>
+
+      <input id="celsius" type="radio" name="temp" />
+      <label for="celsius">Celsius</label>
+
+      <input id="kelvin" type="radio" name="temp" />
+      <label for="kelvin">Kelvin</label>
+    </ul>
+    <div id="data-display"></div>
+  </body>
+</html>
