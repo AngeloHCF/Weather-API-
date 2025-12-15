@@ -1,8 +1,12 @@
 const dis = document.getElementById("data-display");
-const btn = document.getElementById("button");
 const input = document.getElementById("location");
 
-btn.addEventListener("click", fetchWeather);
+input.addEventListener("keyup", (e) => {
+  if (e.key === "Enter") {
+    fetchWeather();
+    input.value = "";
+  }
+});
 
 async function fetchWeather() {
   const location = input.value.trim();
@@ -22,21 +26,16 @@ async function fetchWeather() {
 }
 
 async function displayData(data) {
+  const nameSPAN = document.getElementById("place");
+  const tempSPAN = document.getElementById("temperature");
+
   const temp = data.temperature;
   const name = data.name;
 
   const temperature = convertTemp(temp);
 
-  const name_display = document.createElement("h1");
-  name_display.textContent = name;
-
-  const temp_display = document.createElement("p");
-  temp_display.textContent = temperature;
-
-  const div = document.createElement("div");
-  div.append(name_display, temp_display);
-
-  dis.appendChild(div);
+  nameSPAN.innerText = name;
+  tempSPAN.innerText = temperature;
 }
 
 function convertTemp(temp) {
